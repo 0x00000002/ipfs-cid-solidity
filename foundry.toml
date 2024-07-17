@@ -1,0 +1,41 @@
+[profile.default]
+auto_detect_solc = true
+gas_reports = ["*"]
+libs = ["lib"]
+out = "out"
+scripts = 'scripts'
+src = "src"
+test = "tests"
+solc-version = "0.8.26"
+
+# [profile.default.model_checker]
+# contracts = {'src/Swappable.sol' = ['Swappable'], 'src/Accessory.sol' = ['Accessory']}
+# engine = 'chc'
+# showUnsupported = true
+# # targets = ['assert']
+# timeout = 10000
+
+[profile.sepolia]
+etherscan_api_key = "${ETHERSCAN_API_KEY}"
+
+[rpc_endpoints]
+local = "${LOCAL_RPC_URL}"
+porcini = "${PORCINI_RPC_URL}"
+root = "${ROOT_RPC_URL}"
+sepolia = "${SEPOLIA_RPC_URL}"
+
+# Works only if 
+# "editor.defaultFormatter": "JuanBlanco.solidity" in .vscode/settings.json
+[fmt]
+bracket_spacing = false
+int_types = "long"
+line_length = 120
+multiline_func_header = "all"
+number_underscore = "thousands"
+override_spacing = true
+quote_style = "double"
+single_line_statement_blocks = "single"
+tab_width = 2
+wrap_comments = false
+
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config
