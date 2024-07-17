@@ -2,6 +2,8 @@
 
 pragma solidity ^0.8.26;
 
+import "@base58-solidity/Base58.sol";
+
 bytes constant ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
 
 /**
@@ -21,6 +23,6 @@ contract IPFS {
         for (uint256 i = 0; i < hashLength; ++i) {
             hashString[i + 2] = sha256Hash_[i];
         }
-        return encodeToString(hashString);
+        return Base58.encodeToString(hashString);
     }
 }

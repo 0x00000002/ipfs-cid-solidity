@@ -4,7 +4,7 @@ gas_reports = ["*"]
 libs = ["lib"]
 out = "out"
 scripts = 'scripts'
-src = "src"
+src = "contracts"
 test = "tests"
 solc-version = "0.8.26"
 
@@ -15,14 +15,6 @@ solc-version = "0.8.26"
 # # targets = ['assert']
 # timeout = 10000
 
-[profile.sepolia]
-etherscan_api_key = "${ETHERSCAN_API_KEY}"
-
-[rpc_endpoints]
-local = "${LOCAL_RPC_URL}"
-porcini = "${PORCINI_RPC_URL}"
-root = "${ROOT_RPC_URL}"
-sepolia = "${SEPOLIA_RPC_URL}"
 
 # Works only if 
 # "editor.defaultFormatter": "JuanBlanco.solidity" in .vscode/settings.json
