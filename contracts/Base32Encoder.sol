@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.26;
 
-import "@openzeppelin/contracts/utils/Strings.sol";
-
 contract Base32Encoder {
     bytes32 internal constant BASE32_ALPHABET =
         "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
