@@ -16,13 +16,13 @@ Base58 encoding was implemented by [@storyicon](https://github.com/storyicon/bas
 ### Implementation:
 
 ```solidity
-    function cidv0(bytes32 sha256Hash_) public pure returns (string memory) {
+    function cidv0(bytes32 sha256Hash) public pure returns (string memory) {
         bytes memory hashString = new bytes(34);
         hashString[0] = 0x12;
         hashString[1] = 0x20;
         uint256 hashLength = sha256Hash_.length;
         for (uint256 i = 0; i < hashLength; ++i) {
-            hashString[i + 2] = sha256Hash_[i];
+            hashString[i + 2] = sha256Hash[i];
         }
         return Base58.encodeToString(hashString);
     }
@@ -37,15 +37,15 @@ The AI-drafted [Base32 encoder](Base32.md) implementation was used to create CID
 ### Implementation
 
 ```solidity
-    function cidv1(bytes32 sha3_224Hash) public pure returns (string memory) {
+    function cidv1(bytes32 sha256Hash) public pure returns (string memory) {
         bytes memory hashString = new bytes(36);
         hashString[0] = 0x01;
         hashString[1] = 0x70;
         hashString[2] = 0x12;
         hashString[3] = 0x20;
-        uint256 hashLength = sha3_224Hash.length;
+        uint256 hashLength = sha256Hash.length;
         for (uint256 i = 0; i < hashLength; ++i) {
-            hashString[i + 4] = sha3_224Hash[i];
+            hashString[i + 4] = sha256Hash[i];
         }
         return Base32.encodeToString(hashString);
     }
