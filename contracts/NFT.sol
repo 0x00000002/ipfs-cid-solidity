@@ -37,6 +37,19 @@ contract NFT is IPFS, ERC721 {
         _tokenURIs[tokenId] = uri;
     }
 
+    /**
+     * @notice setTokenURI() accepts pre-calculated content's sha256 hash
+     * @notice and converts it to CIDv0
+     * @param tokenId - token ID to set metadata for
+     * @param sha256Hash - sha256 hash of the content
+     */
+    function setTokenURI_CIDv1(uint256 tokenId, bytes32 sha256Hash) external {
+        string memory uri = string(
+            abi.encodePacked(IPFS_URI, cidv1(sha256Hash))
+        );
+        _tokenURIs[tokenId] = uri;
+    }
+
     function tokenURI(
         uint256 tokenId
     ) public view override returns (string memory) {
